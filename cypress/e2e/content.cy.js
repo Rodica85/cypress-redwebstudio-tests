@@ -6,8 +6,8 @@ describe('Content, SEO and accessibility', () => {
   it('meta description sells the studio proposition', () => {
     cy.get('head meta[name="description"]')
       .should('have.attr', 'content')
-      .and('include', 'UK')
-      .and('include', 'AI chatbot');
+      .and('include', 'independent businesses')
+      .and('include', '£349');
   });
 
   it('Open Graph title, description and image are set for social sharing', () => {

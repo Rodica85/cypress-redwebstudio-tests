@@ -5,7 +5,7 @@ describe('Smoke — homepage essentials', () => {
 
   it('has the expected title with brand + value proposition', () => {
     cy.visit('/');
-    cy.title().should('include', 'RED Web Studio').and('include', 'AI Chatbot');
+    cy.title().should('include', 'RED Web Studio').and('include', 'Custom Websites');
   });
 
   it('shows the typewriter h1 hero', () => {
@@ -15,7 +15,7 @@ describe('Smoke — homepage essentials', () => {
 
   it('exposes all eight in-page anchor sections in the DOM', () => {
     cy.visit('/');
-    ['#services', '#ai-chatbot', '#about', '#industries', '#work', '#audit', '#faq', '#contact']
+    ['#services', '#pricing', '#demos', '#process', '#about', '#work', '#faq', '#contact']
       .forEach((sec) => cy.get(sec).should('exist'));
   });
 

@@ -6,6 +6,8 @@ module.exports = defineConfig({
     viewportWidth: 1280,
     viewportHeight: 800,
     defaultCommandTimeout: 8000,
+    // The chat widget renders inside a shadow root.
+    includeShadowDom: true,
     video: false,
     screenshotOnRunFailure: true,
     setupNodeEvents() {},
