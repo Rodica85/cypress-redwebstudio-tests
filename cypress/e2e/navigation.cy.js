@@ -5,15 +5,14 @@ describe('Navigation — desktop nav and anchor scrolling', () => {
   });
 
   const anchors = [
-    { href: '#services',   section: '#services' },
-    { href: '#ai-chatbot', section: '#ai-chatbot' },
-    { href: '#about',      section: '#about' },
-    { href: '#industries', section: '#industries' },
-    { href: '#audit',      section: '#audit' },
-    { href: '#contact',    section: '#contact' },
+    { href: '#services', section: '#services' },
+    { href: '#pricing',  section: '#pricing' },
+    { href: '#demos',    section: '#demos' },
+    { href: '#about',    section: '#about' },
+    { href: '#contact',  section: '#contact' },
   ];
 
-  it('desktop nav exposes the six main anchor links', () => {
+  it('desktop nav exposes the five main anchor links', () => {
     anchors.forEach(({ href }) => {
       cy.get(`#navbar a[href="${href}"]`).should('exist');
     });
