@@ -131,6 +131,17 @@ describe('Chat widget', () => {
     widget().find('.launcher').should('be.visible');
   });
 
+  it('on a phone it does not zoom the page or open the keyboard by itself', () => {
+    cy.viewport(375, 812);
+    openChat();
+    // iOS zooms the whole page when a focused field has text smaller than 16px.
+    widget().find('.input').should('have.css', 'font-size', '16px');
+    widget().find('.input').should('not.be.focused');
+    widget().find('.send').then(($send) => {
+      expect($send[0].getBoundingClientRect().right, 'Send button inside the screen').to.be.at.most(375);
+    });
+  });
+
   it('is not loaded on the demo pages', () => {
     cy.visit('/demos');
     cy.get('[data-chat-widget]').should('not.exist');

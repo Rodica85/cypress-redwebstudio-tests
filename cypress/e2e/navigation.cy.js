@@ -28,4 +28,11 @@ describe('Navigation — desktop nav and anchor scrolling', () => {
   it('the brand/logo link is present in the navbar', () => {
     cy.get('#navbar a.logo').should('exist');
   });
+
+  it('clicking the logo scrolls back to the top of the page', () => {
+    cy.get('#contact').scrollIntoView();
+    cy.window().its('scrollY').should('be.greaterThan', 500);
+    cy.get('#navbar a.logo').click();
+    cy.window().its('scrollY').should('eq', 0);
+  });
 });

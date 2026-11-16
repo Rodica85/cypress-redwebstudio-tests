@@ -40,6 +40,13 @@ describe('Privacy policy and site basics', () => {
     });
   });
 
+  ['/demos/barber', '/demos/cafe', '/demos/catering', '/demos/cleaning', '/demos/fitness', '/demos/trades'].forEach((path) => {
+    it(`the demo page ${path} has no dead "#" links`, () => {
+      cy.visit(path);
+      cy.get('a[href="#"]').should('not.exist');
+    });
+  });
+
   it('the sitemap lists the privacy policy', () => {
     cy.request('/sitemap.xml').its('body').should('include', 'https://redwebstudio.com/privacy-policy');
   });
